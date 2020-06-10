@@ -1,0 +1,89 @@
+# Default values for agwa.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: "docker.aquaveo.com/tethys/agwa/tethysapp-agwa"
+  tag: latest
+  pullPolicy: Always
+
+imagePullSecrets:
+  - name: gitlab-registry
+nameOverride: ""
+fullnameOverride: ""
+
+condor:
+  fullnameOverride: "agwa-condor"
+  keypass: aquaveo
+  image:
+    tag: latest
+    pullPolicy: Always
+
+geoserver:
+  fullnameOverride: "agwa-gs"
+  image:
+    tag: latest
+    pullPolicy: Always
+  username: "admin"
+  password: "geoserver"
+
+postgis:
+  fullnameOverride: "agwa-db"
+  image:
+    tag: latest
+    pullPolicy: Always
+  username: "postgres"
+  password: "please_dont_use_default_passwords"
+
+tethys:
+  workspace_size: "5Gi"
+  settings:
+    tethys_settings_flags: "--production, --overwrite, --bypass-portal-home"
+    title: "Aquaveo Portal"
+    primary_color: "#256291"
+    secondary_color: "#7C99AC"
+    background_color: "#D7D3C7"
+  database:
+    tethys_db_name: "tethys_platform"
+    tethys_db_username: "tethys_default"
+    tethys_db_password: "pass"
+    app_db_username: "tethys_super"
+    app_db_password: "please_dont_use_default_passwords"
+  super_user:
+    username: "admin"
+    password: "pass"
+    email: "none@none.com"
+
+service:
+  type: ClusterIP
+  port: 80
+
+# Note: The first host in the ingress field is used as TETHYS_PUBLIC_HOST and TETHYS_GS_HOST_PUB. 
+# This is true EVEN IF the ingress is not enabled!
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths: []
+
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+#resources: 
+#  requests:
+#    cpu: 1
+#    memory: 512Mi
+#  limits:
+#    cpu: 4
+#    memory: 1Gi
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
