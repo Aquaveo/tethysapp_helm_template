@@ -46,7 +46,7 @@ spec:
             - name: TETHYS_DB_HOST
               value: {{ .Values.postgis.fullnameOverride | quote }}
             - name: TETHYS_DB_PORT
-              value: "5433"
+              value: "5432"
             - name: TETHYS_DB_SUPERUSER
               value: {{ .Values.tethys.database.app_db_username | quote }}
             - name: TETHYS_DB_SUPERUSER_PASS
