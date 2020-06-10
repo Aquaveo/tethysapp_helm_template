@@ -9,18 +9,10 @@ To add this repo, you can run this command
 helm repo add tethysapp https://aquaveo.github.io/tethysapp_helm_template/
 ```
 
-You can search what is inside this repo:
-```console
-helm search repo tethysapp
-```
-You should see these following charts:
+To use this library, you need to add it in your requirements.yaml file inside your tethys app helm folder. Inside your requirements.txt should look like this:
 ``` console
-NAME                            CHART VERSION   APP VERSION     DESCRIPTION     
-misc-helm-chart/geoserver       0.1.12          latest          Geoserver       
-misc-helm-chart/postgis         0.1.12          latest          PostGIS Database
-```
-
-Run this command to install:
-``` console
-helm install misc-helm-chart/geoserver --generate-name
+dependencies:
+  - name: tethysapp
+    version: 0.1.0
+    repository: "https://aquaveo.github.io/tethysapp_helm_template/"
 ```
