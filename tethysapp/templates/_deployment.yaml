@@ -1,5 +1,5 @@
 {{- define "tethysapp.deployment" }}
-apiVersion: apps/v2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "app.fullname" . }}
@@ -46,7 +46,7 @@ spec:
             - name: TETHYS_DB_HOST
               value: {{ .Values.postgis.fullnameOverride | quote }}
             - name: TETHYS_DB_PORT
-              value: "5432"
+              value: "5433"
             - name: TETHYS_DB_SUPERUSER
               value: {{ .Values.tethys.database.app_db_username | quote }}
             - name: TETHYS_DB_SUPERUSER_PASS
