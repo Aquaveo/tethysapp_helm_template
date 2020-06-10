@@ -1,14 +1,14 @@
 apiVersion: v1
 entries:
   tethysapp:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2020-06-10T17:31:53.190432577-06:00"
+  - apiVersion: latest
+    appVersion: 1.1.0
+    created: "2020-06-10T17:35:16.284435962-06:00"
     description: A Centralize Helm Chart for all Tethys App
-    digest: 95f54e7b8a7f56b4cdf6186e9d8f4af6b5c7acefd7a80c8dc8cb1fec20146395
+    digest: 8cc15722240cbd833552c19d878986a2b10eb3d41c44c502b2d695836ee2ec9f
     name: tethysapp
-    type: application
+    type: library
     urls:
     - tethysapp-0.1.0.tgz
     version: 0.1.0
-generated: "2020-06-10T17:31:53.189671027-06:00"
+generated: "2020-06-10T17:35:16.283311694-06:00"
