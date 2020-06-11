@@ -76,13 +76,13 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-#resources: 
-#  requests:
-#    cpu: 1
-#    memory: 512Mi
-#  limits:
-#    cpu: 4
-#    memory: 1Gi
+resources:
+  requests:
+    cpu: 1
+    memory: 512Mi
+  limits:
+    cpu: 4
+    memory: 2Gi
 
 nodeSelector: {}
 tolerations: []

@@ -16,3 +16,15 @@ dependencies:
     version: 0.1.0
     repository: "https://aquaveo.github.io/tethysapp_helm_template/"
 ```
+
+The following files from your app helm templates needs to be updated
++ deployment.yaml 
+  + {{- include "tethysapp.deployment" . }}   
++ ingress.yaml 
+  + {{- include "tethysapp.ingress" . }}   
++ pvc.yaml 
+  + {{- include "tethysapp.pvc" . }}   
++ service.yaml 
+  + {{- include "tethysapp.service" . }}
+
+You can also use the values.yaml files in this repo as a starting point for your values.yaml in the app.         
