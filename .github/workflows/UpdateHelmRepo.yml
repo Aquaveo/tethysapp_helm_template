@@ -30,7 +30,7 @@ jobs:
           cd ${{github.workspace}} &&
           LOCAL_PACKAGE=$(ls *.tgz | head -n1) &&
           echo $LOCAL_PACKAGE &&
-          mv -vn $LOCAL_PACKAGE ./docs/$LOCAL_PACKAGE &&
+          mv -f $LOCAL_PACKAGE ./docs/$LOCAL_PACKAGE &&
           rm -f *.tgz
           rm -f *.tgz.~*
       - name: Create new index file
