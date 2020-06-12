@@ -1,5 +1,5 @@
 appVersion: 1.1.0
-apiVersion: v1
+apiVersion: v2
 name: tethysapp
 description: A Centralize Helm Chart for all Tethys App
 type: library
