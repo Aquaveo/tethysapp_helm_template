@@ -81,6 +81,7 @@ spec:
               value: "{{ if $.Values.ingress.tls }}443{{else}}80{{ end }}"
             - name: TETHYS_GS_PROTOCOL_PUB
               value: "http{{ if $.Values.ingress.tls }}s{{ end }}"
+            {{- if .Values.condor }}
             - name: TETHYS_CLUSTER_IP
               value: {{ .Values.condor.fullnameOverride | quote }}
             - name: TETHYS_CLUSTER_USERNAME
@@ -89,6 +90,7 @@ spec:
               value: {{ .Values.condor.keypass }}
             - name: TETHYS_CLUSTER_PKEY_FILE
               value: "/var/lib/tethys_persist/keys/condorkey"
+            {{- end }}
               {{- if .Values.tethys.settings.tethys_settings_flags }}
             - name: TETHYS_SETTINGS_FLAGS
               value: {{ .Values.tethys.settings.tethys_settings_flags | quote }}
