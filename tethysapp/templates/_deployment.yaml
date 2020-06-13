@@ -28,11 +28,15 @@ spec:
           env:
             - name: ALLOWED_HOSTS
               value: >-
+                {{- if .Values.ingress.hosts }}
+                  [
                   {{- range .Values.ingress.hosts }}
-                  {{ .host }}
+                  {{ .host }},
                   {{- end }}
-                  localhost
-                  127.0.0.1
+                {{- else }}
+                  [
+                {{- end }}
+                  localhost,127.0.0.1]
             - name: TETHYS_PUBLIC_HOST
               value: {{ (index .Values.ingress.hosts 0).host | quote }}
             - name: POSTGRES_PASSWORD
