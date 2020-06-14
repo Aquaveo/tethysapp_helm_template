@@ -3,7 +3,7 @@ entries:
   tethysapp:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2020-06-13T16:58:24.632648606Z"
+    created: "2020-06-14T07:31:49.706562012Z"
     description: A Centralize Helm Chart for all Tethys App
     digest: eba9d4c060406db9a679bb06e78eddbe8ab8bcc4f80208017aee6646edc74cdf
     name: tethysapp
@@ -11,4 +11,14 @@ entries:
     urls:
     - https://aquaveo.github.io/tethysapp_helm_template/tethysapp-0.1.1.tgz
     version: 0.1.1
-generated: "2020-06-13T16:58:24.631670792Z"
+  - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2020-06-14T07:31:49.705809405Z"
+    description: A Centralize Helm Chart for all Tethys App
+    digest: 1c1e8e220f07a0099db1516a3abeef6d5795f95897558ea4f68578bad7bd8a44
+    name: tethysapp
+    type: library
+    urls:
+    - https://aquaveo.github.io/tethysapp_helm_template/tethysapp-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-06-14T07:31:49.704964498Z"
