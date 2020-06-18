@@ -31,10 +31,12 @@ spec:
             backend:
               serviceName: {{ $fullName }}
               servicePort: http
+          {{- if .Values.geoserver }}
           - path: "/geoserver"
             backend:
               serviceName: {{ $.Values.geoserver.fullnameOverride }}
               servicePort: 8181
+          {{- end }}
   {{- end }}
 ---
 apiVersion: extensions/v1beta1

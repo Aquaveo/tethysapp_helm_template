@@ -64,6 +64,7 @@ spec:
               value: {{ .Values.tethys.database.app_db_username | quote }}
             - name: APP_DB_PASSWORD
               value: {{ .Values.tethys.database.app_db_password | quote }}
+            {{- if .Values.geoserver }}
             - name: TETHYS_GS_USERNAME
               value: {{ .Values.geoserver.username | quote }}
             - name: TETHYS_GS_PASSWORD
@@ -80,6 +81,7 @@ spec:
               value: "{{ if $.Values.ingress.tls }}443{{else}}80{{ end }}"
             - name: TETHYS_GS_PROTOCOL_PUB
               value: "http{{ if $.Values.ingress.tls }}s{{ end }}"
+            {{- end }}
             {{- if .Values.condor }}
             - name: TETHYS_CLUSTER_IP
               value: {{ .Values.condor.fullnameOverride | quote }}
