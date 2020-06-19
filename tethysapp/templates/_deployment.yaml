@@ -132,14 +132,17 @@ spec:
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- if .Values.condor }}
           volumeMounts:
+            {{- if .Values.condor }}
             - name: condor-ssh-key
               readOnly: true
               mountPath: /tmp/keys
+            {{- end }}
+            {{- if .Values.tethys }}
             - name: workspace-pv
               mountPath: '/var/lib/tethys_persist'
-          {{- end }}
+            {{- end }}
+
       volumes:
         {{- if .Values.condor }}
         - name: condor-ssh-key
@@ -147,9 +150,11 @@ spec:
             defaultMode: 0600
             secretName: condor-ssh-key
         {{- end }}
+        {{- if .Values.tethys }}
         - name: workspace-pv
           persistentVolumeClaim:
             claimName: workspace-pvc
+        {{- end }}
 
       {{- with .Values.nodeSelector }}
       nodeSelector:
