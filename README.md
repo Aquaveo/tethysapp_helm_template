@@ -13,7 +13,7 @@ To use this library, you need to add it in your requirements.yaml file inside yo
 ``` console
 dependencies:
   - name: tethysapp
-    version: 0.1.0
+    version: "*"
     repository: "https://aquaveo.github.io/tethysapp_helm_template/"
 ```
 
