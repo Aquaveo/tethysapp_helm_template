@@ -96,7 +96,7 @@ spec:
             - name: TETHYS_CLUSTER_PKEY_FILE
               value: "/var/lib/tethys_persist/keys/condorkey"
             {{- end }}
-            {{- if .Values.tethys.settings }}
+            {{- if .Values.tethys }}
               {{- if .Values.tethys.settings.tethys_settings_flags }}
             - name: TETHYS_SETTINGS_FLAGS
               value: {{ .Values.tethys.settings.tethys_settings_flags | quote }}
