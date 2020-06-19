@@ -34,16 +34,21 @@ spec:
                 localhost, 127.0.0.1]\""
             - name: TETHYS_PUBLIC_HOST
               value: {{ (index .Values.ingress.hosts 0).host | quote }}
+            {{- if .Values.postgis }}
             - name: POSTGRES_PASSWORD
               value: {{ .Values.postgis.password | quote }}
+            - name: APP_DB_HOST
+              value: {{ .Values.postgis.fullnameOverride | quote }}
+            - name: TETHYS_DB_HOST
+              value: {{ .Values.postgis.fullnameOverride | quote }}
+            {{- end }}
+            {{- if .Values.tethys }}
             - name: TETHYS_DB_NAME
               value: {{ .Values.tethys.database.tethys_db_name | quote }}
             - name: TETHYS_DB_USERNAME
               value: {{ .Values.tethys.database.tethys_db_username | quote }}
             - name: TETHYS_DB_PASSWORD
               value: {{ .Values.tethys.database.tethys_db_password | quote }}
-            - name: TETHYS_DB_HOST
-              value: {{ .Values.postgis.fullnameOverride | quote }}
             - name: TETHYS_DB_PORT
               value: "5432"
             - name: TETHYS_DB_SUPERUSER
@@ -56,14 +61,13 @@ spec:
               value: {{ .Values.tethys.super_user.email | quote }}
             - name: PORTAL_SUPERUSER_PASSWORD
               value: {{ .Values.tethys.super_user.password | quote }}
-            - name: APP_DB_HOST
-              value: {{ .Values.postgis.fullnameOverride | quote }}
             - name: APP_DB_PORT
               value: "5432"
             - name: APP_DB_USERNAME
               value: {{ .Values.tethys.database.app_db_username | quote }}
             - name: APP_DB_PASSWORD
               value: {{ .Values.tethys.database.app_db_password | quote }}
+            {{- end }}
             {{- if .Values.geoserver }}
             - name: TETHYS_GS_USERNAME
               value: {{ .Values.geoserver.username | quote }}
