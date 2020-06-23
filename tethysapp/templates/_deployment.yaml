@@ -97,6 +97,7 @@ spec:
               value: "/var/lib/tethys_persist/keys/condorkey"
             {{- end }}
             {{- if .Values.tethys }}
+              {{- if .Values.tethys.settings }}
               {{- if .Values.tethys.settings.tethys_settings_flags }}
             - name: TETHYS_SETTINGS_FLAGS
               value: {{ .Values.tethys.settings.tethys_settings_flags | quote }}
@@ -124,6 +125,7 @@ spec:
               {{- if .Values.tethys.settings.google_client_pass }}
             - name: GOOGLE_CLIENT_PASS
               value: {{ .Values.tethys.settings.google_client_pass | quote }}
+              {{- end }}
               {{- end }}
             {{- end }}
           ports:
