@@ -31,7 +31,7 @@ spec:
             backend:
               serviceName: {{ $fullName }}
               servicePort: http
-          {{- if .Values.geoserver }}
+          {{- if $.Values.geoserver }}
           - path: "/geoserver"
             backend:
               serviceName: {{ $.Values.geoserver.fullnameOverride }}
