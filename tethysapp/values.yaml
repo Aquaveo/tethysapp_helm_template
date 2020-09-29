@@ -37,6 +37,12 @@ postgis:
   username: "postgres"
   password: "please_dont_use_default_passwords"
 
+redis:
+  fullnameOverride: "agwa-redis"
+  image:
+    tag: latest
+    pullPolicy: Always
+
 tethys:
   workspace_size: "5Gi"
   settings:

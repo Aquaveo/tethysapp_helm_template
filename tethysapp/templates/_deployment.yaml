@@ -96,6 +96,12 @@ spec:
             - name: TETHYS_CLUSTER_PKEY_FILE
               value: "/var/lib/tethys_persist/keys/condorkey"
             {{- end }}
+            {{- if .Values.redis }}
+            - name: CHANNEL_LAYERS_BACKEND
+              value: "channels_redis.core.RedisChannelLayer"
+            - name: CHANNEL_LAYERS_CONFIG
+              value:  "\"{\"hosts\": [[{{ .Values.redis.fullnameOverride }}, 6379]]}\""
+            {{- end }}
             {{- if .Values.tethys }}
               {{- if .Values.tethys.settings }}
               {{- if .Values.tethys.settings.tethys_settings_flags }}
