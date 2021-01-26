@@ -104,6 +104,10 @@ spec:
             {{- end }}
             {{- if .Values.tethys }}
               {{- if .Values.tethys.settings }}
+              {{- if .Values.tethys.settings.client_max_body_size }}
+            - name: CLIENT_MAX_BODY_SIZE
+              value: {{ .Values.tethys.settings.client_max_body_size | quote }}
+              {{- end }}
               {{- if .Values.tethys.settings.tethys_settings_flags }}
             - name: TETHYS_SETTINGS_FLAGS
               value: {{ .Values.tethys.settings.tethys_settings_flags | quote }}

@@ -51,6 +51,7 @@ tethys:
     primary_color: "#256291"
     secondary_color: "#7C99AC"
     background_color: "#D7D3C7"
+    client_max_body_size: "75M"
   database:
     tethys_db_name: "tethys_platform"
     tethys_db_username: "tethys_default"
