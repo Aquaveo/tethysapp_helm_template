@@ -52,6 +52,7 @@ tethys:
     secondary_color: "#7C99AC"
     background_color: "#D7D3C7"
     client_max_body_size: "75M"
+    file_upload_max_memory_size: "78643200"
   database:
     tethys_db_name: "tethys_platform"
     tethys_db_username: "tethys_default"

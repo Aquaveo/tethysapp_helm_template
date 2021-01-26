@@ -108,6 +108,10 @@ spec:
             - name: CLIENT_MAX_BODY_SIZE
               value: {{ .Values.tethys.settings.client_max_body_size | quote }}
               {{- end }}
+              {{- if .Values.tethys.settings.file_upload_max_memory_size }}
+            - name: FILE_UPLOAD_MAX_MEMORY_SIZE
+              value: {{ .Values.tethys.settings.file_upload_max_memory_size | quote }}
+              {{- end }}
               {{- if .Values.tethys.settings.tethys_settings_flags }}
             - name: TETHYS_SETTINGS_FLAGS
               value: {{ .Values.tethys.settings.tethys_settings_flags | quote }}
